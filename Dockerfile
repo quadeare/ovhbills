@@ -21,4 +21,4 @@ RUN curl -sS https://getcomposer.org/installer | php
 # Install app
 RUN php composer.phar install
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/app/start.sh"]
