@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        If (env('APP_SECURE')) {
+        if (env('APP_SECURE')) {
             $this->app['request']->server->set('HTTPS', true);
         }
 
@@ -28,16 +28,6 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
     {
         //
     }
