@@ -11,6 +11,10 @@ RUN apt update &&\
     apt install -y git &&\
     apt-get clean
 
+# Install mysqli php driver
+RUN docker-php-ext-install mysqli &&\
+    docker-php-ext-install pdo_mysql
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php
 
