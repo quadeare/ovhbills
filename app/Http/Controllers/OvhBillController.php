@@ -10,7 +10,10 @@ class OvhBillController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        if (env('ALLOW_ANONYMOUS') === false) {
+            $this->middleware('auth');
+        }
+        
     }
 
     private $names = [
