@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,10 +16,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        if (env('APP_URL')) {
+            URL::forceRootUrl(env('APP_URL'));
+        }
+
         if (env('APP_SECURE')) {
             $this->app['request']->server->set('HTTPS', true);
         }
-
     }
 
     /**
